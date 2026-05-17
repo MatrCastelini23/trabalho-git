@@ -10,7 +10,7 @@ if (!isset($_SESSION['filmes'])) {
         ["titulo" => "Clube da Luta", "genero" => "Drama / Thriller", "ano" => 1999, "diretor" => "David Fincher"],
         ["titulo" => "Forrest Gump", "genero" => "Drama / Romance", "ano" => 1994, "diretor" => "Robert Zemeckis"],
         ["titulo" => "Matrix", "genero" => "Ficção Científica / Ação", "ano" => 1999, "diretor" => "Lana e Lilly Wachowski"],
-        ["titulo" => "O Senhor dos Anéis: O Retorno do Rei", "genero" => "Fantasia / Aventura", "ano" => 2003, "peter Jackson"],
+        ["titulo" => "O Senhor dos Anéis: O Retorno do Rei", "genero" => "Fantasia / Aventura", "ano" => 2003, "diretor" => "Peter Jackson"],
         ["titulo" => "Pulp Fiction", "genero" => "Crime / Drama", "ano" => 1994, "diretor" => "Quentin Tarantino"],
         ["titulo" => "O Cavaleiro das Trevas", "genero" => "Ação / Crime", "ano" => 2008, "diretor" => "Christopher Nolan"],
         ["titulo" => "Schindler's List", "genero" => "Drama / História", "ano" => 1993, "diretor" => "Steven Spielberg"],
