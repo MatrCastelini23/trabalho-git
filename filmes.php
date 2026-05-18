@@ -19,7 +19,7 @@ if (!isset($_SESSION['filmes'])) {
     ];
 }
 
-// 2. Processa o SEU formulário de CADASTRO
+// 2. Processa o formulário de CADASTRO
 if (isset($_POST['btn_enviar'])) {
     $novoFilme = [
         "titulo"  => $_POST['titulo'],
@@ -34,7 +34,7 @@ if (isset($_POST['btn_enviar'])) {
     exit();
 }
 
-// 3. Processa o formulário de EDIÇÃO dele
+// 3. Processa o formulário de EDIÇÃO
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = $_POST['id'];
     $_SESSION['filmes'][$id] = [
@@ -43,6 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         "ano"     => $_POST['ano'],
         "diretor" => $_POST['diretor'],
     ];
+    header('Location: filmes.php');
+    exit;
+}
+
+// 4. Processa o SEU formulário de DELETE (Sua Tarefa)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deletar_id'])) {
+    unset($_SESSION['filmes'][$_POST['deletar_id']]);
+    $_SESSION['filmes'] = array_values($_SESSION['filmes']); // Reorganiza as chaves do array
     header('Location: filmes.php');
     exit;
 }
@@ -98,6 +106,11 @@ $editando = $_GET['id'] ?? null;
                     <td><?= htmlspecialchars($filme["diretor"]) ?></td>
                     <td>
                         <a href="filmes.php?id=<?= $index ?>">Editar</a>
+                        
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="deletar_id" value="<?= $index ?>">
+                            <button type="submit" style="color: red; margin-left: 10px;">Deletar</button>
+                        </form>
                     </td>
                 <?php endif; ?>
             </tr>
